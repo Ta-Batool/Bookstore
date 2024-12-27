@@ -4,9 +4,22 @@ import { IoSearchOutline } from "react-icons/io5";
 import { HiOutlineUser } from "react-icons/hi";
 import avatarImg from "../assets/avatar.png"
 
+import { useState } from "react";
+
+const navigation = [
+    {name: "Dashboard", href:"/user-dashboard"},
+    {name: "Orders", href:"/orders"},
+    {name: "Cart Page", href:"/cart"},
+    {name: "Check Out", href:"/checkout"},
+]
+
 
 const currentUser= true;
 const Navbar = () => {
+
+    const  [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+
   return(
     <header className="max-w-screen-2xl mx-auto px-4 py-6">
         <nav className="flex justify-between items-center">
@@ -30,10 +43,33 @@ const Navbar = () => {
 
                     {
                         currentUser ? <>
-                        <button>
+                        <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                             <img src={avatarImg} alt="" className={`size-7 rounded-full ${currentUser ? 'ring-2 ring-blue-500' : ''}`}/>
                             
-                        </button></>:<Link to="/login"><HiOutlineUser className="size-6" /></Link>
+                        </button>
+                        {
+                            isDropdownOpen && (
+                                <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md z-40">
+                                    <ul className="py-2">
+                                        {
+                                            navigation.map((item) => (
+                                                <li key={item.name} onClick={() => setIsDropdownOpen(false)}>
+                                                    <Link to={item.href} className="block px-4 py-2 text-sm hover:bg-gray-100">
+                                                        {item.name}
+                                                    </Link>
+                                                </li>
+                                                ))
+                                        }
+                                            
+                                    </ul>
+                                </div>
+                            )
+                        }
+                        </>:<Link to="/login"><HiOutlineUser className="size-6" /></Link>
+                        
+                           
+
+                        
                     }
                 </div>
                 
