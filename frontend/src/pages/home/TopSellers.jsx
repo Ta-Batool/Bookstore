@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import BookCard from '../books/BookCard';
 
 const categories = ["Choose a genre", "business", "fiction"];
 
@@ -8,7 +9,7 @@ const TopSellers = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/books.json")
+    fetch("books.json")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
@@ -51,13 +52,7 @@ const TopSellers = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredBooks.length > 0 ? (
           filteredBooks.map((book, index) => (
-            <div
-              key={index}
-              className="border rounded-lg p-4 shadow-md bg-white"
-            >
-              <h3 className="text-lg font-semibold">{book.title}</h3>
-              <p className="text-gray-500 capitalize">Category: {book.category}</p>
-            </div>
+            <BookCard key={index}book={book}/>
           ))
         ) : (
           <p className="text-gray-500">No books available in this category.</p>
