@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import BookCard from '../books/BookCard';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-const categories = ["Choose a genre", "business", "fiction"];
+// import required modules
+import { Pagination, Navigation } from 'swiper/modules';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+const categories = ["Choose a genre", "business", "fiction","horror","adventure"];
 
 const TopSellers = () => {
   const [books, setBooks] = useState([]);
@@ -45,19 +54,44 @@ const TopSellers = () => {
         </select>
       </div>
 
-      {/* Error Handling */}
-      {error && <p className="text-red-500">Error: {error}</p>}
+      <Swiper
+                slidesPerView={1}
+                spaceBetween={30}
+                navigation={true}
+                breakpoints={{
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 40,
+                    },
+                    1024: {
+                        slidesPerView: 2,
+                        spaceBetween: 50,
+                    },
+                    1180: {
+                        slidesPerView: 3,
+                        spaceBetween: 50,
+                    }
+                }}
+                modules={[Pagination, Navigation]}
+                className="mySwiper"
+            >
 
-      {/* Books Display */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredBooks.length > 0 ? (
-          filteredBooks.map((book, index) => (
-            <BookCard key={index}book={book}/>
-          ))
-        ) : (
-          <p className="text-gray-500">No books available in this category.</p>
-        )}
-      </div>
+                {
+                   filteredBooks.length > 0 && filteredBooks.map((book, index) => (
+                        <SwiperSlide key={index}>
+                            <BookCard  book={book} />
+                        </SwiperSlide>
+                    ))
+                }
+
+
+
+            </Swiper>
+
     </div>
   );
 };
