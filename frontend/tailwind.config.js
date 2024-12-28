@@ -7,14 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#FFCE1A',
-        'secondary': '#0D0842',
-        'blackBG':'#F3F3F3',
-        'favorite':'#FF5841'
-      },
-      fontFamily:{
-        'primary':["Montserrat" , "sans-serif"],
-        'secondary':[ "Nunito Sans", "sans-serif"] 
+        'primary': '#a87132',
+        'secondary' : "#0D0842",
+        'blackBG': '#F3F3F3',
+        'Favorite': '#a84a32'
+        
+      }, 
+      fontFamily: {
+        'primary' : ["Montserrat", "sans-serif"],
+        'secondary' : ["Nunito Sans", "sans-serif"]
       }
     },
   },
