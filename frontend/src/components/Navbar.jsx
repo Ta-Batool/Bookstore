@@ -15,7 +15,7 @@ const navigation = [
 ]
 
 
-const currentUser= true;
+const currentUser= false;
 const Navbar = () => {
 
     const  [isDropdownOpen, setIsDropdownOpen] = useState(false)
