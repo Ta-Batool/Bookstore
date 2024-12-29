@@ -5,6 +5,7 @@ import { HiOutlineUser } from "react-icons/hi";
 import avatarImg from "../assets/avatar.png"
 
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const navigation = [
     {name: "Dashboard", href:"/user-dashboard"},
@@ -18,7 +19,8 @@ const currentUser= true;
 const Navbar = () => {
 
     const  [isDropdownOpen, setIsDropdownOpen] = useState(false)
-
+    const cartIems = useSelector(state => state.cart.cartIems);
+    console.log(cartIems)
 
   return(
     <header className="max-w-screen-2xl mx-auto px-4 py-6">
