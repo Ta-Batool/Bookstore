@@ -1,5 +1,6 @@
 import App from "../App";
 import Home from "../pages/home/Home";
+import CartPage from "../pages/books/CartPage";
 import {
     createBrowserRouter
 }from "react-router-dom";
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path: "/about",
                 element: <div>About</div>
+            },
+            {
+                path: "/cart",
+                element:<CartPage/>
             }
         ]
     },
