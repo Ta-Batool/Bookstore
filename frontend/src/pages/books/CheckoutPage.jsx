@@ -58,7 +58,7 @@ const CheckoutPage = () => {
                                 <div className="md:col-span-5">
                                     <label htmlFor="full_name">Full Name</label>
                                     <input
-                                       
+                                       {...register("name", { required: true })}
                                         type="text" name="name" id="name" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"  />
                                 </div>
 
