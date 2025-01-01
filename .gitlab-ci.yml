@@ -1,0 +1,23 @@
+deploy_frontend_image:
+  stage: deploy
+  image: docker:latest
+  script:
+    - docker login -u $tayyababatool -p $lafn1hbl1  # Log in to Docker Hub
+    - docker build -t $tayyababatool/my-app-frontend:latest .  # Tag the frontend image with 'latest' or a custom tag
+    - docker push $DOCKER_USERNAME/my-app-frontend:latest  # Push the frontend image to Docker Hub
+  only:
+    - main  # Only trigger this job on the `main` branch
+  when: on_success  # Deploy only if previous jobs are successful
+
+# Deploy the backend Docker image to Docker Hub (Update Existing Image)
+deploy_backend_image:
+  stage: deploy
+  image: docker:latest
+  script:
+    - docker login -u $tayyababatool -p $lafn1hbl1 # Log in to Docker Hub
+    - docker build -t $tayyababatool/my-app-backend:latest .  # Tag the backend image with 'latest' or a custom tag
+    - docker push $tayyababatool/my-app-backend:latest  # Push the backend image to Docker Hub
+  only:
+    - main  # Only trigger this job on the `main` branch
+  when: on_success  # Deploy only if previous jobs are successful
+
