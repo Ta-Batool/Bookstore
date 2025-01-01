@@ -2,14 +2,11 @@ import App from "../App";
 import Home from "../pages/home/Home";
 import CartPage from "../pages/books/CartPage";
 import Register from "../components/Register";
-import Login from "../components/login";
+import Login from "../components/Login";
 
-import {
-    createBrowserRouter
-}from "react-router-dom";
+import {createBrowserRouter}from "react-router-dom";
 import CheckoutPage from "../pages/books/CheckoutPage";
-
-
+import SingleBook from "../pages/books/SingleBook";
 
 
 const router = createBrowserRouter([
@@ -44,6 +41,10 @@ const router = createBrowserRouter([
             {
                 path: "/checkout",
                 element: <CheckoutPage/>
+            },
+            {
+                path: "/books/:id",
+                element: <SingleBook/>
             }
         ]
     },

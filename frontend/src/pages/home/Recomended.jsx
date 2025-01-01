@@ -7,25 +7,13 @@ import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { useFetchAllBooksQuery } from '../../redux/features/books/booksApi';
+
 
 
 function Recomended() {
-    const [books, setBooks] = useState([]);
-    
-    const [error, setError] = useState(null);
-    
-      useEffect(() => {
-        fetch("books.json")
-          .then((res) => {
-            if (!res.ok) {
-              throw new Error(`HTTP error! status: ${res.status}`);
-            }
-            return res.json();
-          })
-          .then((data) => setBooks(data))
-          .catch((err) => setError(err.message));
-      }, []);
-    
+   
+    const{data:books = []} = useFetchAllBooksQuery();
   return (
     <div className='py-16'>
       <h2 className="text-3xl font-semibold mb-6">Recomended for you</h2>

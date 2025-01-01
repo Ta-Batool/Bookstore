@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:80" # Map frontend container's port 80 to localhost:3000
+    networks:
+      - bookstore-network
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000" # Map backend container's port 5000 to localhost:5000
+    networks:
+      - bookstore-network
+    environment:
+      - NODE_ENV=production
+
+networks:
+  bookstore-network:
+    driver: bridge
