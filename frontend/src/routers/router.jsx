@@ -2,7 +2,7 @@ import App from "../App";
 import Home from "../pages/home/Home";
 import CartPage from "../pages/books/CartPage";
 import Register from "../components/Register";
-import Login from "../components/login";
+import Login from "../components/Login";
 
 import {
     createBrowserRouter
