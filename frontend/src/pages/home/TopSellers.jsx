@@ -9,25 +9,16 @@ import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { useFetchAllBooksQuery } from '../../redux/features/books/booksApi';
 
 const categories = ["Choose a genre", "business", "fiction","horror","adventure"];
 
 const TopSellers = () => {
-  const [books, setBooks] = useState([]);
+  
   const [selectedCategory, setSelectedCategory] = useState("Choose a genre");
-  const [error, setError] = useState(null);
+  
+  const{data:books = []} = useFetchAllBooksQuery();
 
-  useEffect(() => {
-    fetch("books.json")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then((data) => setBooks(data))
-      .catch((err) => setError(err.message));
-  }, []);
 
   const filteredBooks =
     selectedCategory === "Choose a genre"

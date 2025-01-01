@@ -5,7 +5,11 @@ import ordersApi from './features/orders/ordersApi'
 
 export const store = configureStore({
   reducer: {
-   cart: cartReducer
+   cart: cartReducer,
+   [booksApi.reducerPath] : booksApi.reducer,
+   [ordersApi.reducerPath]: ordersApi.reducer,
   },
- 
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(booksApi.middleware, ordersApi.middleware),
 })
+ 
