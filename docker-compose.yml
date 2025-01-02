@@ -12,7 +12,7 @@ services:
     build:
       context: ./backend
     ports:
-      - "5000:5000" # Map backend container's port 5000 to localhost:5000
+      - "5000:5000" # check
     networks:
       - bookstore-network
     environment:
