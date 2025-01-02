@@ -4,7 +4,7 @@ services:
     build:
       context: ./frontend
     ports:
-      - "3000:80" # Map frontend container's port 80 to localhost:3000
+      - "3000:80" # cheeck 2
     networks:
       - bookstore-network
 
