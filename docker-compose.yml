@@ -1,3 +1,4 @@
+version: '3.8'
 
 services:
   frontend:
@@ -7,6 +8,7 @@ services:
       - "3000:80" # cheeck 2
     networks:
       - bookstore-network
+    image: "$env:DOCKER_USER/mernstack-frontend:latest" # Add this line for tagging
 
   backend:
     build:
@@ -17,6 +19,7 @@ services:
       - bookstore-network
     environment:
       - NODE_ENV=production
+    image: "$env:DOCKER_USER/mernstack-backend:latest" # Add this line for tagging
 
 networks:
   bookstore-network:
