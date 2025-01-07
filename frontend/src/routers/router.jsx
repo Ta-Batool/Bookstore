@@ -3,7 +3,6 @@ import Home from "../pages/home/Home";
 import CartPage from "../pages/books/CartPage";
 import Register from "../components/Register";
 import Login from "../components/login";
-
 import {createBrowserRouter}from "react-router-dom";
 import CheckoutPage from "../pages/books/CheckoutPage";
 import SingleBook from "../pages/books/SingleBook";
@@ -45,7 +44,7 @@ const router = createBrowserRouter([
             {
                 path: "/books/:id",
                 element: <SingleBook/>
-            }
+            },
         ]
     },
 ]);

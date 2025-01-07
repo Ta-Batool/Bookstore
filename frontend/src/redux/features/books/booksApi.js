@@ -13,6 +13,7 @@ const  baseQuery = fetchBaseQuery({
     }
 })
 
+
 const booksApi = createApi({
     reducerPath: 'booksApi',
     baseQuery,
@@ -31,7 +32,7 @@ const booksApi = createApi({
                 url: `/create-book`,
                 method: "POST",
                 body: newBook
-                
+
             }),
             invalidatesTags: ["Books"]
         }),
