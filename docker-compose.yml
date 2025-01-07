@@ -1,0 +1,22 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:80" # check3
+    networks:
+      - bookstore-network
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5001:5000" # check
+    networks:
+      - bookstore-network
+    environment:
+      - NODE_ENV=production
+
+networks:
+  bookstore-network:
+    driver: bridge
