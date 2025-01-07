@@ -46,7 +46,9 @@ useEffect(()=>{
         currentUser,
         registerUser,
         loginUser,
-        signInWithGoogle,
+        signInWithGoogle, 
+
+        
         logout
     }
     return(
