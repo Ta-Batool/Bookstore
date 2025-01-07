@@ -3,7 +3,7 @@ services:
     build:
       context: ./frontend
     ports:
-      - "3000:80" # check2
+      - "3000:80" # check3
     networks:
       - bookstore-network
 
