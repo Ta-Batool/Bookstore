@@ -6,7 +6,7 @@ import Login from "../components/login";
 import {createBrowserRouter}from "react-router-dom";
 import CheckoutPage from "../pages/books/CheckoutPage";
 import SingleBook from "../pages/books/SingleBook";
-import SingleBook from "../pages/books/SingleBook";
+
 
 
 const router = createBrowserRouter([
